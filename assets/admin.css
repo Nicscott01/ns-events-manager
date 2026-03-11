@@ -1,0 +1,19 @@
+.ns-em-settings h2 {
+	margin-top: 1.5em;
+}
+
+.ns-em-settings .description {
+	margin-bottom: 1em;
+	color: #646970;
+}
+
+.ns-em-settings .form-table th {
+	width: 220px;
+}
+
+/* Tighten up checkbox rows */
+.ns-em-settings .form-table td label {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+}

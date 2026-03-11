@@ -1,0 +1,14 @@
+{
+    "name": "nscott/ns-events-manager",
+    "description": "Lightweight WordPress events CPT with ACF fields. No single-post pages — events link out to external URLs.",
+    "type": "wordpress-plugin",
+    "license": "GPL-2.0-or-later",
+    "authors": [
+        {
+            "name": "Nic Scott"
+        }
+    ],
+    "require": {
+        "php": ">=8.0"
+    }
+}
