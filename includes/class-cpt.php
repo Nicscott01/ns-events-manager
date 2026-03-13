@@ -104,6 +104,24 @@ class NS_EM_CPT {
 			'type'              => 'string',
 			'sanitize_callback' => 'esc_url_raw',
 		] );
+		register_post_meta( 'ns_event', 'rsvp_email', [
+			'show_in_rest'      => true,
+			'single'            => true,
+			'type'              => 'string',
+			'sanitize_callback' => 'sanitize_email',
+		] );
+		register_post_meta( 'ns_event', 'rsvp_subject', [
+			'show_in_rest'      => true,
+			'single'            => true,
+			'type'              => 'string',
+			'sanitize_callback' => 'sanitize_text_field',
+		] );
+		register_post_meta( 'ns_event', 'rsvp_body', [
+			'show_in_rest'      => true,
+			'single'            => true,
+			'type'              => 'string',
+			'sanitize_callback' => 'sanitize_textarea_field',
+		] );
 	}
 
 	// -------------------------------------------------------------------------

@@ -91,8 +91,11 @@ Every event includes these core fields (managed via ACF):
 | Event Type | Dropdown | Speaking, Retreat, Workshop, Online, Other |
 | Location | Text | e.g. "Austin, TX" or "Online" |
 | Price | Text | Flexible — supports any pricing display string |
-| External URL | URL | Required; where visitors are redirected |
+| External URL | URL | Optional; where visitors are redirected when set |
 | Link Label | Text | Custom button text; falls back to the default set in settings |
+| RSVP Email | Email | Optional RSVP contact address |
+| RSVP Email Subject | Text | Optional pre-filled subject line |
+| RSVP Email Body | Textarea | Optional pre-filled message body |
 
 ---
 
@@ -123,6 +126,9 @@ The following meta keys are available for use in post loop templates:
 - `event_type` — event type string
 - `event_location` — location text
 - `external_url` — the external link URL
+- `rsvp_email` — RSVP email address
+- `rsvp_subject` — pre-filled RSVP email subject
+- `rsvp_body` — pre-filled RSVP email body
 
 ---
 
@@ -140,6 +146,9 @@ The following meta fields are included in REST responses:
 - `event_type`
 - `event_location`
 - `external_url`
+- `rsvp_email`
+- `rsvp_subject`
+- `rsvp_body`
 
 ---
 

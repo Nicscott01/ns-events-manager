@@ -208,7 +208,6 @@ class NS_EM_ACF_Fields {
 			'name'         => 'external_url',
 			'type'         => 'url',
 			'instructions' => __( 'Where visitors go when they click the event — registration page, Eventbrite listing, etc.', 'ns-events-manager' ),
-			'required'     => 1,
 			'menu_order'   => $order,
 		];
 		$order += 10;
@@ -223,6 +222,60 @@ class NS_EM_ACF_Fields {
 			'placeholder'  => $opts['default_link_label'],
 			'wrapper'      => [ 'width' => '50' ],
 			'menu_order'   => $order,
+		];
+		$order += 10;
+
+		// RSVP Email
+		$fields[] = [
+			'key'          => 'field_ns_em_rsvp_email',
+			'label'        => __( 'RSVP Email', 'ns-events-manager' ),
+			'name'         => 'rsvp_email',
+			'type'         => 'email',
+			'instructions' => __( 'Optional contact email for RSVP requests.', 'ns-events-manager' ),
+			'placeholder'  => 'events@example.com',
+			'wrapper'      => [ 'width' => '50' ],
+			'menu_order'   => $order,
+		];
+		$order += 10;
+
+		// RSVP Subject
+		$fields[] = [
+			'key'               => 'field_ns_em_rsvp_subject',
+			'label'             => __( 'RSVP Email Subject', 'ns-events-manager' ),
+			'name'              => 'rsvp_subject',
+			'type'              => 'text',
+			'instructions'      => __( 'Optional pre-filled subject line for RSVP emails.', 'ns-events-manager' ),
+			'placeholder'       => __( 'RSVP for {Event Name}', 'ns-events-manager' ),
+			'conditional_logic' => [
+				[
+					[
+						'field'    => 'field_ns_em_rsvp_email',
+						'operator' => '!=empty',
+					],
+				],
+			],
+			'menu_order'        => $order,
+		];
+		$order += 10;
+
+		// RSVP Body
+		$fields[] = [
+			'key'               => 'field_ns_em_rsvp_body',
+			'label'             => __( 'RSVP Email Body', 'ns-events-manager' ),
+			'name'              => 'rsvp_body',
+			'type'              => 'textarea',
+			'instructions'      => __( 'Optional pre-filled message body for RSVP emails.', 'ns-events-manager' ),
+			'rows'              => 6,
+			'new_lines'         => 'br',
+			'conditional_logic' => [
+				[
+					[
+						'field'    => 'field_ns_em_rsvp_email',
+						'operator' => '!=empty',
+					],
+				],
+			],
+			'menu_order'        => $order,
 		];
 		$order += 10;
 

@@ -46,6 +46,9 @@ $events = [
 			'price'              => '$349',
 			'external_url'       => 'https://example.com/events/move-breathe-heal',
 			'external_url_label' => 'Reserve Your Spot',
+			'rsvp_email'         => 'events@example.com',
+			'rsvp_subject'       => 'RSVP: Move, Breathe, Heal Retreat',
+			'rsvp_body'          => "Hi,\n\nI'd like to RSVP for Move, Breathe, Heal.\n\nName:\nPhone:\n\nThanks!",
 			'full_description'   => '<p>This full-day retreat is designed to help you step out of survival mode and into your body. Through a carefully sequenced combination of functional movement, guided breathwork, and group somatic exercises, you\'ll leave with tools you can take home and a nervous system that finally feels like yours again.</p><p>The day includes a farm-to-table lunch, time for journaling and reflection, and a closing integration circle. No prior experience with any of these practices is required — just a willingness to show up.</p>',
 		],
 	],
@@ -128,6 +131,9 @@ $field_map = [
 	'price'              => 'field_ns_em_price',
 	'external_url'       => 'field_ns_em_external_url',
 	'external_url_label' => 'field_ns_em_external_url_label',
+	'rsvp_email'         => 'field_ns_em_rsvp_email',
+	'rsvp_subject'       => 'field_ns_em_rsvp_subject',
+	'rsvp_body'          => 'field_ns_em_rsvp_body',
 	'full_description'   => 'field_ns_em_full_description',
 ];
 
