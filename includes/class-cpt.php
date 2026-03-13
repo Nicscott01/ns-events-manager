@@ -68,7 +68,7 @@ class NS_EM_CPT {
 	 * but real visitors never land on a WordPress-hosted event page.
 	 */
 	public static function redirect_single(): void {
-		if ( ! is_singular( 'ns_event' ) ) {
+		if ( ! is_singular( 'ns_event' ) || self::should_bypass_single_redirect() ) {
 			return;
 		}
 
@@ -76,6 +76,38 @@ class NS_EM_CPT {
 
 		wp_redirect( $url ?: home_url(), 301 );
 		exit;
+	}
+
+	/**
+	 * Breakdance renders SSR elements by POSTing to the current post URL and expects JSON back.
+	 * Skip frontend redirects for builder/JSON requests so those responses are not converted to HTML.
+	 */
+	private static function should_bypass_single_redirect(): bool {
+		if ( is_admin() || wp_doing_ajax() || wp_is_json_request() || is_preview() ) {
+			return true;
+		}
+
+		if ( defined( 'REST_REQUEST' ) && REST_REQUEST ) {
+			return true;
+		}
+
+		if ( isset( $_GET['_breakdance_doing_ajax'] ) || isset( $_GET['breakdance_iframe'] ) ) {
+			return true;
+		}
+
+		if ( function_exists( '\Breakdance\isRequestFromBuilderIframe' ) && \Breakdance\isRequestFromBuilderIframe() ) {
+			return true;
+		}
+
+		if ( function_exists( '\Breakdance\isRequestFromBuilderSsr' ) && \Breakdance\isRequestFromBuilderSsr() ) {
+			return true;
+		}
+
+		if ( function_exists( '\Breakdance\isRequestFromBuilderDynamicDataGet' ) && \Breakdance\isRequestFromBuilderDynamicDataGet() ) {
+			return true;
+		}
+
+		return false;
 	}
 
 	/**

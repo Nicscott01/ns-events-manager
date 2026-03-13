@@ -3,7 +3,7 @@
  * Plugin Name: NS Events Manager
  * Plugin URI:  https://github.com/nscott/ns-events-manager
  * Description: Lightweight events CPT with ACF fields. No single-post pages — events link out to external URLs. Built for Breakdance post loop builders.
- * Version:     1.0.1
+ * Version:     1.0.2
  * Author:      Nic Scott
  * License:     GPL-2.0-or-later
  * Text Domain: ns-events-manager
@@ -11,7 +11,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-define( 'NS_EM_VERSION', '1.0.1' );
+define( 'NS_EM_VERSION', '1.0.2' );
 define( 'NS_EM_DIR', plugin_dir_path( __FILE__ ) );
 define( 'NS_EM_URL', plugin_dir_url( __FILE__ ) );
 
